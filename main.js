@@ -15,24 +15,28 @@
 // frequent commits
 // branches and pullrequest (merging)
 
-fetch("https://superheroapi.com/api//10101411974306204", {
+fetch("https://kanye.rest/", {
   headers: { Accept: "application/json" }
 })
   .then(function(response) {
-    return response.json();
+    console.log(response);
+    return response.text();
   })
   .then(function(data) {
     console.log(data);
-
-    var div = document.querySelector("#div");
-    var p = document.createElement("p");
-    p.classList.add("dad-joke");
-    div.appendChild(p);
-    console.log(data);
-    p.innerText = data.joke;
-    return data;
   });
+//     var div = document.querySelector("#div");
+//     var p = document.createElement("p");
+//     p.classList.add("superhero-stats");
+//     div.appendChild(p);
+//     console.log(data);
+//     p.innerText = data.quote;
+//     return data;
+//   });
+// // .catch(function(error) {
+// //   console.log(error);
+// // });
 
-function newHero() {
-  window.location.reload();
-}
+// function newHero() {
+//   window.location.reload();
+// // }
