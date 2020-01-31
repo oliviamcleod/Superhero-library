@@ -15,28 +15,21 @@
 // frequent commits
 // branches and pullrequest (merging)
 
-fetch("https://kanye.rest/", {
-  headers: { Accept: "application/json" }
-})
+fetch("https://api.kanye.rest/")
   .then(function(response) {
     console.log(response);
-    return response.text();
+    return response.json();
   })
   .then(function(data) {
     console.log(data);
+    var div = document.querySelector("#div");
+    var p = document.createElement("p");
+    p.classList.add("kanye-quote");
+    div.appendChild(p);
+    console.log(data);
+    p.innerText = data.quote;
   });
-//     var div = document.querySelector("#div");
-//     var p = document.createElement("p");
-//     p.classList.add("superhero-stats");
-//     div.appendChild(p);
-//     console.log(data);
-//     p.innerText = data.quote;
-//     return data;
-//   });
-// // .catch(function(error) {
-// //   console.log(error);
-// // });
 
-// function newHero() {
-//   window.location.reload();
-// // }
+function newHero() {
+  window.location.reload();
+}
