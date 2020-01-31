@@ -15,28 +15,66 @@
 // frequent commits
 // branches and pullrequest (merging)
 
-fetch("https://kanye.rest/", {
+fetch("https://superheroapi.com/api//10101411974306204", {
   headers: { Accept: "application/json" }
 })
   .then(function(response) {
-    console.log(response);
-    return response.text();
+    return response.json();
   })
   .then(function(data) {
     console.log(data);
-  });
-//     var div = document.querySelector("#div");
-//     var p = document.createElement("p");
-//     p.classList.add("superhero-stats");
-//     div.appendChild(p);
-//     console.log(data);
-//     p.innerText = data.quote;
-//     return data;
-//   });
-// // .catch(function(error) {
-// //   console.log(error);
-// // });
 
-// function newHero() {
-//   window.location.reload();
-// // }
+    var div = document.querySelector("#div");
+    var p = document.createElement("p");
+    p.classList.add("superhero1");
+    div.appendChild(p);
+    console.log(data);
+    p.innerText = data.superhero;
+    return data;
+  });
+
+function newHero() {
+  window.location.reload();
+}
+
+var config = {
+  trace: true,
+  spiralResolution: 1, //Lower = better resolution
+  spiralLimit: 50 * 5,
+  lineHeight: 0.8,
+  xWordPadding: 0,
+  yWordPadding: 3,
+  font: "sans-serif"
+};
+
+anychart.onDocumentReady(function() {
+  var data = [
+  {"Kanye"}, 
+  {"West"},
+  {"cool"},
+  {"and"},
+  {"touch"},
+  {"sky"},
+  {"greatest"},
+  {"I am Warhol"},
+  {"I don't like to"},
+  {"fashion"},
+  {"Number 1"}  
+  ];
+
+ // create a tag (word) cloud chart
+  var chart = anychart.tagCloud(data);
+
+   // set a chart title
+  chart.title('15 most spoken languages')
+  // set an array of angles at which the words will be laid out
+  chart.angles([0])
+  // enable a color range
+  chart.colorRange(true);
+  // set the color range length
+  chart.colorRange().length('80%');
+
+  // display the word cloud chart
+  chart.container("container");
+  chart.draw();
+});
